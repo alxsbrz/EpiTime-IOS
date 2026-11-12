@@ -1,0 +1,68 @@
+name: EpiTime
+options:
+  bundleIdPrefix: fr.alexistb2904
+  developmentLanguage: fr
+  deploymentTarget:
+    iOS: "26.0"
+    macOS: "26.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+  generateEmptyDirectories: false
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "2.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: S4N8733K95
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_STRICT_CONCURRENCY: minimal
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    SWIFT_COMPILATION_MODE: wholemodule
+    GCC_OPTIMIZATION_LEVEL: s
+  configs:
+    Debug:
+      SWIFT_OPTIMIZATION_LEVEL: "-Onone"
+      SWIFT_COMPILATION_MODE: singlefile
+      SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
+    Release:
+      SWIFT_OPTIMIZATION_LEVEL: "-O"
+      SWIFT_COMPILATION_MODE: wholemodule
+
+targets:
+  EpiTime:
+    type: application
+    supportedDestinations: [iOS, macOS]
+    sources:
+      - path: Sources
+      - path: Resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: fr.alexistb2904.epitime.native
+        PRODUCT_NAME: EpiTime
+        INFOPLIST_KEY_CFBundleDisplayName: EpiTime
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.education
+        INFOPLIST_KEY_NSSupportsAutomaticTermination: YES
+        INFOPLIST_KEY_NSSupportsSuddenTermination: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_PREVIEWS: YES
+        GENERATE_INFOPLIST_FILE: YES
+        SUPPORTS_MACCATALYST: NO
+    info:
+      path: Resources/Info.plist
+      properties:
+        CFBundleLocalizations: [fr]
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleURLTypes:
+          - CFBundleURLName: fr.alexistb2904.epitime
+            CFBundleURLSchemes: [epitime]
+        NSUserNotificationsUsageDescription: EpiTime te prévient avant chaque cours.
+        LSApplicationQueriesSchemes: [maps, comgooglemaps]
